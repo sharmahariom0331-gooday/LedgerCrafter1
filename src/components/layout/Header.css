@@ -1,0 +1,190 @@
+/* Modern Header Navigation Styles */
+
+/* Smooth underline animation */
+.nav-link {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, hsl(210 55% 25%), hsl(168 80% 30%));
+  transform: translateX(-50%);
+  transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-radius: 2px;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Glow effect on hover */
+.nav-link:hover {
+  color: hsl(210 55% 25%);
+  text-shadow: 0 0 20px rgba(210, 55%, 25%, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Service button glow */
+.services-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.services-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(168, 80%, 30%, 0.1) 0%, transparent 70%);
+  transition: left 0.4s ease;
+}
+
+.services-btn:hover::before {
+  left: 100%;
+}
+
+/* Mega dropdown smooth entrance */
+.mega-dropdown {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: top;
+}
+
+.mega-dropdown.open {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.mega-dropdown.closed {
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0.95) translateY(-10px);
+}
+
+/* Service item hover lift and slide */
+.service-item {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.service-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 3px;
+  height: 0;
+  background: linear-gradient(180deg, hsl(210 55% 25%), hsl(168 80% 30%));
+  border-radius: 2px;
+  transform: translateY(-50%);
+  transition: height 0.3s ease;
+}
+
+.service-item:hover::before {
+  height: 100%;
+}
+
+.service-item:hover {
+  background-color: hsl(210 55% 25% / 0.05);
+  padding-left: 12px;
+  transform: translateX(4px);
+}
+
+/* CTA Button glow effect */
+.cta-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.cta-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Mobile menu smooth slide */
+.mobile-nav {
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Chevron rotation with bounce */
+.chevron-rotate {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.chevron-rotate.open {
+  transform: rotate(180deg);
+}
+
+/* Active link styling */
+.nav-link.active {
+  color: hsl(210 55% 25%);
+  background: linear-gradient(135deg, hsl(210 55% 25% / 0.1), hsl(168 80% 30% / 0.05));
+  border-radius: 0.5rem;
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Header entrance animation */
+header {
+  animation: headerSlideDown 0.5s ease-out;
+}
+
+@keyframes headerSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive mobile styles */
+@media (max-width: 1024px) {
+  .nav-link::after {
+    display: none;
+  }
+
+  .nav-link:hover {
+    text-shadow: none;
+  }
+
+  .service-item:hover {
+    padding-left: 1rem;
+  }
+}
